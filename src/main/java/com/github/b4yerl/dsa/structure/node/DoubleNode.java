@@ -42,4 +42,9 @@ public class DoubleNode<T> implements Content<T>, NextNodeReference, PreviousNod
     public void setPreviousNode(PreviousNodeReference previous) {
         this.previousNode = previous;
     }
+
+    @Override
+    public String toString() {
+        return this.getContent().toString();
+    }
 }

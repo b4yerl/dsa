@@ -34,4 +34,9 @@ public class SingleNode<T> implements Content<T>, NextNodeReference {
     public void setNextNode(NextNodeReference next) {
         this.nextNode = next;
     }
+
+    @Override
+    public String toString() {
+        return this.getContent().toString();
+    }
 }
