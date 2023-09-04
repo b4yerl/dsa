@@ -14,6 +14,10 @@ public class SingleNode<T> implements Content<T>, NextNodeReference {
     private T content;
     private NextNodeReference nextNode = null;
 
+    public SingleNode() {   }
+    public SingleNode(T content) {
+        this.setContent(content);
+    }
 
     @Override
     public T getContent() {

@@ -13,6 +13,11 @@ public class DoubleNode<T> implements Content<T>, NextNodeReference, PreviousNod
     private NextNodeReference nextNode = null;
     private PreviousNodeReference previousNode = null;
 
+    public DoubleNode() {   }
+    public DoubleNode(T content) {
+        this.setContent(content);
+    }
+
     @Override
     public T getContent() {
         return this.content;
