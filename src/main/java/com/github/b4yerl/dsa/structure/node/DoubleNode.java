@@ -10,8 +10,8 @@ package com.github.b4yerl.dsa.structure.node;
  */
 public class DoubleNode<T> implements Content<T>, NextNodeReference, PreviousNodeReference {
     private T content;
-    private NextNodeReference nextNode;
-    private PreviousNodeReference previousNode;
+    private NextNodeReference nextNode = null;
+    private PreviousNodeReference previousNode = null;
 
     @Override
     public T getContent() {

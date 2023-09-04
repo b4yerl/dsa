@@ -12,7 +12,7 @@ package com.github.b4yerl.dsa.structure.node;
  */
 public class SingleNode<T> implements Content<T>, NextNodeReference {
     private T content;
-    private NextNodeReference nextNode;
+    private NextNodeReference nextNode = null;
 
 
     @Override
