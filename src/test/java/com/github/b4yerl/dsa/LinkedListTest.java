@@ -9,7 +9,7 @@ public class LinkedListTest {
 
     @Test
     public void shouldCreateEmptyList() {
-        LinkedList list = new LinkedList();
+        LinkedList<Object> list = new LinkedList<>();
         Assertions.assertTrue(list.isEmpty());
     }
 
@@ -18,7 +18,7 @@ public class LinkedListTest {
         SingleNode<Integer> node = new SingleNode<>();
         node.setContent(10);
 
-        LinkedList list = new LinkedList(node);
+        LinkedList<Integer> list = new LinkedList<>(node);
         Assertions.assertFalse(list.isEmpty());
         Assertions.assertEquals(1, list.size());
     }
@@ -28,38 +28,39 @@ public class LinkedListTest {
         SingleNode<Integer> node = new SingleNode<>();
         node.setContent(10);
 
-        LinkedList list = new LinkedList(node);
+        LinkedList<Integer> list = new LinkedList<>(node);
         list.addToLastPosition(new SingleNode<>(5));
 
         SingleNode<Integer> target = new SingleNode<>(61);
         list.addToLastPosition(target);
 
         list.addToLastPosition(new SingleNode<>(85));
-        Assertions.assertSame(target, list.getElementByIndex(2));
+        Assertions.assertSame(target, list.get(2));
     }
 
     @Test
     public void shouldThrowIndexOutOfBoundsException() {
-        LinkedList list = new LinkedList();
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> list.getElementByIndex(5));
+        LinkedList<Integer> list = new LinkedList<>(new SingleNode<>(69));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> list.get(5));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> list.get(-5));
     }
 
     @Test
     public void shouldAddNewEntryPoint() {
-        LinkedList list = new LinkedList(new SingleNode<>(6.9));
-        SingleNode target = new SingleNode(6.1);
+        LinkedList<Double> list = new LinkedList<>(new SingleNode<>(6.9));
+        SingleNode<Double> target = new SingleNode<>(6.1);
         list.addNewEntryPoint(target);
 
-        Assertions.assertEquals(target, list.getElementByIndex(0));
+        Assertions.assertEquals(target, list.get(0));
     }
 
     @Test
     public void shouldAddNewLastElement() {
-        LinkedList list = new LinkedList(new SingleNode<>(6.9));
-        SingleNode target = new SingleNode(6.1);
+        LinkedList<Double> list = new LinkedList<>(new SingleNode<>(6.9));
+        SingleNode<Double> target = new SingleNode<>(6.1);
         list.addToLastPosition(target);
 
-        Assertions.assertEquals(target, list.getElementByIndex(list.size() - 1));
+        Assertions.assertEquals(target, list.get(list.size() - 1));
     }
 
     @Test
@@ -67,7 +68,7 @@ public class LinkedListTest {
         SingleNode<Integer> node = new SingleNode<>();
         node.setContent(10);
 
-        LinkedList list = new LinkedList(node);
+        LinkedList<Integer> list = new LinkedList<>(node);
         list.addToLastPosition(new SingleNode<>(5));
 
         SingleNode<Integer> target = new SingleNode<>(61);
@@ -75,35 +76,35 @@ public class LinkedListTest {
 
         list.addToLastPosition(new SingleNode<>(85));
 
-        Assertions.assertSame(target, list.getElementByIndex(1));
+        Assertions.assertSame(target, list.get(1));
     }
 
     @Test
     public void shouldRemoveEntryPoint() {
-        LinkedList list = new LinkedList(new SingleNode<>(6.9));
+        LinkedList<Double> list = new LinkedList<>(new SingleNode<>(6.9));
 
         SingleNode<Double> target = new SingleNode<>(6.1);
         list.addToLastPosition(target);
         list.removeEntryPoint();
 
-        Assertions.assertSame(target, list.getElementByIndex(0));
+        Assertions.assertSame(target, list.get(0));
     }
 
     @Test
     public void shouldRemoveLastElement() {
-        LinkedList list = new LinkedList(new SingleNode<>(6.9));
+        LinkedList<Double> list = new LinkedList<>(new SingleNode<>(6.9));
 
         SingleNode<Double> target = new SingleNode<>(6.1);
         list.addNewEntryPoint(target);
         list.removeLastPosition();
 
         Assertions.assertEquals(1, list.size());
-        Assertions.assertSame(target, list.getElementByIndex(list.size() - 1));
+        Assertions.assertSame(target, list.get(list.size() - 1));
     }
 
     @Test
     public void shouldRemoveElementOnGivenIndex() {
-        LinkedList list = new LinkedList(new SingleNode(10));
+        LinkedList<Integer> list = new LinkedList<>(new SingleNode<>(10));
         list.addToLastPosition(new SingleNode<>(5));
 
         SingleNode<Integer> target = new SingleNode<>(61);
@@ -113,7 +114,7 @@ public class LinkedListTest {
 
         list.remove(1);
 
-        Assertions.assertSame(target, list.getElementByIndex(1));
+        Assertions.assertSame(target, list.get(1));
     }
 }
 
