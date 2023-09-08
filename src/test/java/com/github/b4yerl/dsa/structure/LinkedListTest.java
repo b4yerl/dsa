@@ -1,6 +1,5 @@
-package com.github.b4yerl.dsa;
+package com.github.b4yerl.dsa.structure;
 
-import com.github.b4yerl.dsa.structure.LinkedList;
 import com.github.b4yerl.dsa.structure.node.SingleNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
