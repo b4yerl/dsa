@@ -1,7 +1,7 @@
 package com.github.b4yerl.dsa.structure;
 
 import com.github.b4yerl.dsa.structure.node.NextNodeReference;
-import com.github.b4yerl.dsa.structure.node.SingleNode;
+import com.github.b4yerl.dsa.structure.node.SinglyNode;
 
 /**
  * <p>
@@ -17,12 +17,12 @@ import com.github.b4yerl.dsa.structure.node.SingleNode;
  * @author b4yerl
  */
 public class Stack<T> {
-    private SingleNode<T> top;
+    private SinglyNode<T> top;
 
     public Stack() {
         this.top = null;
     }
-    public Stack(SingleNode<T> top) {
+    public Stack(SinglyNode<T> top) {
         this.top = top;
     }
 
@@ -33,7 +33,7 @@ public class Stack<T> {
      *
      * @return Elemento presente no topo da pilha.
      */
-    public SingleNode<T> peek() {
+    public SinglyNode<T> peek() {
         return this.top;
     }
 
@@ -45,7 +45,7 @@ public class Stack<T> {
      *
      * @param newElement Novo elemento a ser colocado no topo da pilha.
      */
-    public void push(SingleNode<T> newElement) {
+    public void push(SinglyNode<T> newElement) {
         newElement.setNextNode(peek());
         this.top = newElement;
     }
@@ -62,9 +62,9 @@ public class Stack<T> {
      *
      * @return Elemento removido do topo da pilha.
      */
-    public SingleNode<T> pop() {
-        SingleNode<T> popped = peek();
-        this.top = (SingleNode<T>) this.top.getNextNode();
+    public SinglyNode<T> pop() {
+        SinglyNode<T> popped = peek();
+        this.top = (SinglyNode<T>) this.top.getNextNode();
         return popped;
     }
 

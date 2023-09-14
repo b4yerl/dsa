@@ -1,7 +1,7 @@
 package com.github.b4yerl.dsa.structure;
 
 import com.github.b4yerl.dsa.structure.node.NextNodeReference;
-import com.github.b4yerl.dsa.structure.node.SingleNode;
+import com.github.b4yerl.dsa.structure.node.SinglyNode;
 
 /**
  * <p>
@@ -15,13 +15,13 @@ import com.github.b4yerl.dsa.structure.node.SingleNode;
  * @author b4yerl
  */
 public class LinkedList<T> {
-    private SingleNode<T> entryPoint;
+    private SinglyNode<T> entryPoint;
 
     public LinkedList() {
         entryPoint = null;
     }
 
-    public LinkedList(SingleNode<T> entryPoint) {
+    public LinkedList(SinglyNode<T> entryPoint) {
         this.entryPoint = entryPoint;
     }
 
@@ -38,14 +38,14 @@ public class LinkedList<T> {
         }
     }
 
-    public void addNewEntryPoint(SingleNode<T> newElement) {
+    public void addNewEntryPoint(SinglyNode<T> newElement) {
         if(entryPoint == null) entryPoint.setNextNode(newElement);
         else {
             newElement.setNextNode(entryPoint);
             entryPoint = newElement;
         }
     }
-    public void addToLastPosition(SingleNode<T> newElement) {
+    public void addToLastPosition(SinglyNode<T> newElement) {
         if(size() == 0) {
             addNewEntryPoint(newElement);
             return;
@@ -68,7 +68,7 @@ public class LinkedList<T> {
      * @param newElement Novo elemento que será adicionado à lista.
      * @param index Index em que desejamos adicionar o novo elemento.
      */
-    public void add(SingleNode<T> newElement, int index) {
+    public void add(SinglyNode<T> newElement, int index) {
         if(index == 0) {
             addNewEntryPoint(newElement);
             return;
@@ -79,7 +79,7 @@ public class LinkedList<T> {
     }
 
     public void removeEntryPoint() {
-        if(size() > 0) entryPoint = (SingleNode<T>) entryPoint.getNextNode();
+        if(size() > 0) entryPoint = (SinglyNode<T>) entryPoint.getNextNode();
     }
     public void removeLastPosition() {
         if(size() != 0) get(size() - 2).setNextNode(null);

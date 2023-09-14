@@ -8,13 +8,13 @@ package com.github.b4yerl.dsa.structure.node;
  * @author b4yerl
  * @param <T> Tipo do conteúdo carregado pelo nó duplo.
  */
-public class DoubleNode<T> implements Content<T>, NextNodeReference, PreviousNodeReference {
+public class DoublyNode<T> implements Content<T>, NextNodeReference, PreviousNodeReference {
     private T content;
     private NextNodeReference nextNode = null;
     private PreviousNodeReference previousNode = null;
 
-    public DoubleNode() {   }
-    public DoubleNode(T content) {
+    public DoublyNode() {   }
+    public DoublyNode(T content) {
         this.setContent(content);
     }
 

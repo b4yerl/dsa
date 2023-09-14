@@ -10,12 +10,12 @@ package com.github.b4yerl.dsa.structure.node;
  * @author b4yerl
  * @param <T> Tipo do conteúdo carrregado pelo nó.
  */
-public class SingleNode<T> implements Content<T>, NextNodeReference {
+public class SinglyNode<T> implements Content<T>, NextNodeReference {
     private T content;
     private NextNodeReference nextNode = null;
 
-    public SingleNode() {   }
-    public SingleNode(T content) {
+    public SinglyNode() {   }
+    public SinglyNode(T content) {
         this.setContent(content);
     }
 

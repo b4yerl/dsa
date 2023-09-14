@@ -1,7 +1,7 @@
 package com.github.b4yerl.dsa.structure;
 
 import com.github.b4yerl.dsa.structure.node.NextNodeReference;
-import com.github.b4yerl.dsa.structure.node.SingleNode;
+import com.github.b4yerl.dsa.structure.node.SinglyNode;
 
 /**
  * <p>
@@ -12,12 +12,12 @@ import com.github.b4yerl.dsa.structure.node.SingleNode;
  * @author b4yerl
  */
 public class Queue<T> {
-    private SingleNode<T> first;
+    private SinglyNode<T> first;
 
     public Queue() {
         this.first = null;
     }
-    public Queue(SingleNode<T> first) {
+    public Queue(SinglyNode<T> first) {
         this.first = first;
     }
 
@@ -28,7 +28,7 @@ public class Queue<T> {
      * </p>
      * @param newElement Elemento adicionado ao fim da fila
      */
-    public void enqueue(SingleNode<T> newElement) {
+    public void enqueue(SinglyNode<T> newElement) {
         if(this.first == null) { this.first = newElement; return; }
         NextNodeReference currentLastNode = this.first;
         while(currentLastNode.getNextNode() != null) {
@@ -44,13 +44,13 @@ public class Queue<T> {
      * </p>
      * @return
      */
-    public SingleNode<T> dequeue() {
-        SingleNode<T> removed = this.first;
-        this.first = (SingleNode<T>) removed.getNextNode();
+    public SinglyNode<T> dequeue() {
+        SinglyNode<T> removed = this.first;
+        this.first = (SinglyNode<T>) removed.getNextNode();
         return removed;
     }
 
-    public SingleNode<T> peek() {
+    public SinglyNode<T> peek() {
         return this.first;
     }
 
